@@ -6,62 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
     <title>Calculator</title>
 </head>
 
 <body>
     <div class="page">
         <div class="calculator">
-            <div class="screen">
+            <div class="numScreen" id="numScreen">
 
             </div>
             <div class="buttons">
-                <button class="button">
+                <button class="button" id="num7">
                     7
                 </button>
-                <button class="button">
+                <button class="button" id="num8">
                     8
                 </button>
-                <button class="button">
+                <button class="button" id="num9">
                     9
                 </button>
-                <button class="button">
+                <button class="button" id="divide">
                     /
                 </button>
-                <button class="button">
+                <button class="button" id="num4">
                     4
                 </button>
-                <button class="button">
+                <button class="button" id="num5">
                     5
                 </button>
-                <button class="button">
+                <button class="button" id="num6">
                     6
                 </button>
-                <button class="button">
+                <button class="button" id="mult">
                     *
                 </button>
-                <button class="button">
+                <button class="button" id="num1">
                     1
                 </button>
-                <button class="button">
+                <button class="button" id="num2">
                     2
                 </button>
-                <button class="button">
+                <button class="button" id="num3">
                     3
                 </button>
-                <button class="button">
+                <button class="button" id="minus">
                     -
                 </button>
-                <button class="button">
+                <button class="button" id="num0">
                     0
                 </button>
-                <button class="button">
+                <button class="button" id="dot">
                     .
                 </button>
-                <button class="button">
+                <button class="button" id="plus">
                     +
                 </button>
-                <button class="button">
+                <button class="button" id="equals">
                     =
                 </button>
             </div>
@@ -69,6 +70,54 @@
         </div>
 
     </div>
+    <script>
+        const button7 = document.querySelector('#num7');
+        const button8 = document.querySelector('#num8');
+        const button9 = document.querySelector('#num9');
+        const divide = document.querySelector('#divide');
+        const button4 = document.querySelector('#num4');
+        const button5 = document.querySelector('#num5');
+        const button6 = document.querySelector('#num6');
+        const mult = document.querySelector('#mult');
+        const button1 = document.querySelector('#num1');
+        const button2 = document.querySelector('#num2');
+        const button3 = document.querySelector('#num3');
+        const minus = document.querySelector('#minus');
+        const button0 = document.querySelector('#num0');
+        const dot = document.querySelector('#dot');
+        const plus = document.querySelector('#plus');
+        const equals = document.querySelector('#equals');
+        button7.addEventListener('click', () => {
+            setScreen("7");
+        });
+        button8.addEventListener('click', () => {
+            setScreen("8");
+        });
+        button9.addEventListener('click', () => {
+            setScreen("9");
+        });
+        button4.addEventListener('click', () => {
+            setScreen("4");
+        });
+        button5.addEventListener('click', () => {
+            setScreen("5");
+        });
+        button6.addEventListener('click', () => {
+            setScreen("6");
+        });
+        button1.addEventListener('click', () => {
+            setScreen("1");
+        });
+        button2.addEventListener('click', () => {
+            setScreen("2");
+        });
+        button3.addEventListener('click', () => {
+            setScreen("3");
+        });
+        button0.addEventListener('click', () => {
+            setScreen("0");
+        });
+    </script>
 </body>
 
 </html>
