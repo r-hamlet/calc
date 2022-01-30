@@ -71,6 +71,7 @@
 
     </div>
     <script>
+        var eval = "";
         const button7 = document.querySelector('#num7');
         const button8 = document.querySelector('#num8');
         const button9 = document.querySelector('#num9');
@@ -88,34 +89,48 @@
         const plus = document.querySelector('#plus');
         const equals = document.querySelector('#equals');
         button7.addEventListener('click', () => {
-            setScreen("7");
+            eval += "7";
+            setScreen(eval);
         });
         button8.addEventListener('click', () => {
-            setScreen("8");
+            eval += "8";
+            setScreen(eval);
         });
         button9.addEventListener('click', () => {
-            setScreen("9");
+            eval += "9";
+            setScreen(eval);
         });
         button4.addEventListener('click', () => {
-            setScreen("4");
+            eval += "4";
+            setScreen(eval);
         });
         button5.addEventListener('click', () => {
-            setScreen("5");
+            eval += "5";
+            setScreen(eval);
         });
         button6.addEventListener('click', () => {
-            setScreen("6");
+            eval += "6";
+            setScreen(eval);
         });
         button1.addEventListener('click', () => {
-            setScreen("1");
+            eval += "1";
+            setScreen(eval);
         });
         button2.addEventListener('click', () => {
-            setScreen("2");
+            eval += "2";
+            setScreen(eval);
         });
         button3.addEventListener('click', () => {
-            setScreen("3");
+            eval += "3";
+            setScreen(eval);
         });
         button0.addEventListener('click', () => {
-            setScreen("0");
+            eval += "0";
+            setScreen(eval);
+        });
+        dot.addEventListener('click', () => {
+            eval += ".";
+            setScreen(eval);
         });
     </script>
 </body>

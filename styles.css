@@ -20,6 +20,9 @@
     width: 93%;
     margin: 10px;
     background-color: white;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 2.5em;
 }
 
 .buttons {
