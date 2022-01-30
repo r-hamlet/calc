@@ -17,6 +17,18 @@
 
             </div>
             <div class="buttons">
+                <button class="button" id="mPlus">
+                    m+
+                </button>
+                <button class="button" id="mc">
+                    mc
+                </button>
+                <button class="button" id="clear">
+                    c
+                </button>
+                <button class="button" id="delete">
+                    del
+                </button>
                 <button class="button" id="num7">
                     7
                 </button>
@@ -74,7 +86,9 @@
         var eval1 = "";
         var eval2 = "";
         var first = true;
+        var showMem = false;
         var operation = "";
+        var mem = 0;
         const button7 = document.querySelector('#num7');
         const button8 = document.querySelector('#num8');
         const button9 = document.querySelector('#num9');
@@ -91,6 +105,10 @@
         const dot = document.querySelector('#dot');
         const addButton = document.querySelector('#plus');
         const equals = document.querySelector('#equals');
+        const memPlus = document.querySelector('#mPlus');
+        const memClear = document.querySelector('#mc');
+        const clearButton = document.querySelector('#clear');
+        const delButton = document.querySelector('#delete');
         button7.addEventListener('click', () => {
             if (first) {
                 if (eval1.length < 15) {
@@ -247,11 +265,11 @@
             }
         });
         addButton.addEventListener('click', () => {
-            
+
             if (!first) {
                 eval1 = operate(eval1, eval2, operation);
-            setScreen(eval1);
-            first = true;
+                setScreen(eval1);
+                first = true;
             }
 
             eval2 = "";
@@ -259,45 +277,82 @@
             operation = "+";
         });
         subButton.addEventListener('click', () => {
-            
+
             if (!first) {
                 eval1 = operate(eval1, eval2, operation);
-            setScreen(eval1);
-            first = true;
+                setScreen(eval1);
+                first = true;
             }
-            
+
             eval2 = "";
             first = false;
             operation = "-";
         });
         equals.addEventListener('click', () => {
-            eval1 = operate(eval1, eval2, operation);
-            setScreen(eval1);
-            first = true;
+            if (!((eval1 == "") || (eval2 == ""))) {
+                eval1 = operate(eval1, eval2, operation);
+                setScreen(eval1);
+                first = true;
+            }
+
         });
         multButton.addEventListener('click', () => {
-            
+
             if (!first) {
                 eval1 = operate(eval1, eval2, operation);
-            setScreen(eval1);
-            first = true;
+                setScreen(eval1);
+                first = true;
             }
-            
+
             eval2 = "";
             first = false;
             operation = "*";
         });
         divButton.addEventListener('click', () => {
-            
+
             if (!first) {
                 eval1 = operate(eval1, eval2, operation);
-            setScreen(eval1);
-            first = true;
+                setScreen(eval1);
+                first = true;
             }
-            
+
             eval2 = "";
             first = false;
             operation = "/";
+        });
+        memPlus.addEventListener('click', () => {
+            mem += eval1;
+        });
+        memClear.addEventListener('click', () => {
+            if (!showMem) {
+                eval1 = mem;
+                eval2 = "";
+                first = true;
+                operation = "";
+                showMem = true;
+                setScreen(mem);
+            }
+            else {
+                eval1 = "";
+                eval2 = "";
+                first = true;
+                operation = "";
+                mem = 0;
+                setScreen("");
+                showMem = false;
+            }
+
+        });
+        clearButton.addEventListener('click', () => {
+            eval1 = "";
+            eval2 = "";
+            first = true;
+            showMem = false;
+            operation = "";
+            setScreen("");
+        });
+        delButton.addEventListener('click', () => {
+
         });
     </script>
 </body>
