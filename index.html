@@ -352,7 +352,14 @@
             setScreen("");
         });
         delButton.addEventListener('click', () => {
-
+            if (first) {
+                eval1 = eval1.toString().slice(0, -1);
+                setScreen(eval1);
+            }
+            else {
+                eval2 = eval2.toString().slice(0, -1);
+                setScreen(eval2);
+            }
         });
     </script>
 </body>
