@@ -73,103 +73,231 @@
     <script>
         var eval1 = "";
         var eval2 = "";
-        var mem = "";
+        var first = true;
+        var operation = "";
         const button7 = document.querySelector('#num7');
         const button8 = document.querySelector('#num8');
         const button9 = document.querySelector('#num9');
-        const divide = document.querySelector('#divide');
+        const divButton = document.querySelector('#divide');
         const button4 = document.querySelector('#num4');
         const button5 = document.querySelector('#num5');
         const button6 = document.querySelector('#num6');
-        const mult = document.querySelector('#mult');
+        const multButton = document.querySelector('#mult');
         const button1 = document.querySelector('#num1');
         const button2 = document.querySelector('#num2');
         const button3 = document.querySelector('#num3');
-        const minus = document.querySelector('#minus');
+        const subButton = document.querySelector('#minus');
         const button0 = document.querySelector('#num0');
         const dot = document.querySelector('#dot');
-        const plus = document.querySelector('#plus');
+        const addButton = document.querySelector('#plus');
         const equals = document.querySelector('#equals');
         button7.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "7";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "7";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "7";
+                }
+                setScreen(eval2);
+            }
+
         });
         button8.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "8";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "8";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "8";
+                }
+                setScreen(eval2);
+            }
         });
         button9.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "9";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "9";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "9";
+                }
+                setScreen(eval2);
+            }
         });
         button4.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "4";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "4";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "4";
+                }
+                setScreen(eval2);
+            }
         });
         button5.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "5";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "5";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "5";
+                }
+                setScreen(eval2);
+            }
         });
         button6.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "6";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "6";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "6";
+                }
+                setScreen(eval2);
+            }
         });
         button1.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "1";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "1";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "1";
+                }
+                setScreen(eval2);
+            }
         });
         button2.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "2";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "2";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "2";
+                }
+                setScreen(eval2);
+            }
         });
         button3.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "3";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "3";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "3";
+                }
+                setScreen(eval2);
+            }
         });
         button0.addEventListener('click', () => {
-            if (eval1.length < 15) {
-                eval1 += "0";
+            if (first) {
+                if (eval1.length < 15) {
+                    eval1 += "0";
+                }
+                setScreen(eval1);
             }
-            setScreen(eval1);
+            else {
+                if (eval2.length < 15) {
+                    eval2 += "0";
+                }
+                setScreen(eval2);
+            }
         });
         dot.addEventListener('click', () => {
-            if ((eval1.length < 15) && (!eval1.includes("."))) {
-                eval1 += ".";
+            if (first) {
+                if ((eval1.length < 15) && (!eval1.includes("."))) {
+                    eval1 += ".";
+                }
+                setScreen(eval1);
             }
+            else {
+                if ((eval2.length < 15) && (!eval2.includes("."))) {
+                    eval2 += ".";
+                }
+                setScreen(eval2);
+            }
+        });
+        addButton.addEventListener('click', () => {
+            
+            if (!first) {
+                eval1 = operate(eval1, eval2, operation);
             setScreen(eval1);
-        });
-        plus.addEventListener('click', () => {
+            first = true;
+            }
 
+            eval2 = "";
+            first = false;
+            operation = "+";
         });
-        minus.addEventListener('click', () => {
-
+        subButton.addEventListener('click', () => {
+            
+            if (!first) {
+                eval1 = operate(eval1, eval2, operation);
+            setScreen(eval1);
+            first = true;
+            }
+            
+            eval2 = "";
+            first = false;
+            operation = "-";
         });
         equals.addEventListener('click', () => {
-
+            eval1 = operate(eval1, eval2, operation);
+            setScreen(eval1);
+            first = true;
         });
-        mult.addEventListener('click', () => {
-
+        multButton.addEventListener('click', () => {
+            
+            if (!first) {
+                eval1 = operate(eval1, eval2, operation);
+            setScreen(eval1);
+            first = true;
+            }
+            
+            eval2 = "";
+            first = false;
+            operation = "*";
         });
-        divide.addEventListener('click', () => {
-
+        divButton.addEventListener('click', () => {
+            
+            if (!first) {
+                eval1 = operate(eval1, eval2, operation);
+            setScreen(eval1);
+            first = true;
+            }
+            
+            eval2 = "";
+            first = false;
+            operation = "/";
         });
     </script>
 </body>
