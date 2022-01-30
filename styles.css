@@ -13,6 +13,8 @@
     width: 50%;
     background-color: black;
     align-items: center;
+    min-width: 350px;
+    min-height: 400px;
 }
 .numScreen {
     display: flex;
@@ -23,6 +25,7 @@
     align-items: flex-end;
     justify-content: flex-end;
     font-size: 2.5em;
+
 }
 
 .buttons {

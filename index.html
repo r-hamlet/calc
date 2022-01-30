@@ -71,7 +71,8 @@
 
     </div>
     <script>
-        var eval = "";
+        var eval1 = "";
+        var eval2 = "";
         var mem = "";
         const button7 = document.querySelector('#num7');
         const button8 = document.querySelector('#num8');
@@ -90,48 +91,85 @@
         const plus = document.querySelector('#plus');
         const equals = document.querySelector('#equals');
         button7.addEventListener('click', () => {
-            eval += "7";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "7";
+            }
+            setScreen(eval1);
         });
         button8.addEventListener('click', () => {
-            eval += "8";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "8";
+            }
+            setScreen(eval1);
         });
         button9.addEventListener('click', () => {
-            eval += "9";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "9";
+            }
+            setScreen(eval1);
         });
         button4.addEventListener('click', () => {
-            eval += "4";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "4";
+            }
+            setScreen(eval1);
         });
         button5.addEventListener('click', () => {
-            eval += "5";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "5";
+            }
+            setScreen(eval1);
         });
         button6.addEventListener('click', () => {
-            eval += "6";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "6";
+            }
+            setScreen(eval1);
         });
         button1.addEventListener('click', () => {
-            eval += "1";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "1";
+            }
+            setScreen(eval1);
         });
         button2.addEventListener('click', () => {
-            eval += "2";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "2";
+            }
+            setScreen(eval1);
         });
         button3.addEventListener('click', () => {
-            eval += "3";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "3";
+            }
+            setScreen(eval1);
         });
         button0.addEventListener('click', () => {
-            eval += "0";
-            setScreen(eval);
+            if (eval1.length < 15) {
+                eval1 += "0";
+            }
+            setScreen(eval1);
         });
         dot.addEventListener('click', () => {
-            eval += ".";
-            setScreen(eval);
+            if ((eval1.length < 15) && (!eval1.includes("."))) {
+                eval1 += ".";
+            }
+            setScreen(eval1);
+        });
+        plus.addEventListener('click', () => {
+
+        });
+        minus.addEventListener('click', () => {
+
+        });
+        equals.addEventListener('click', () => {
+
+        });
+        mult.addEventListener('click', () => {
+
+        });
+        divide.addEventListener('click', () => {
+
         });
     </script>
 </body>
