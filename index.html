@@ -39,7 +39,7 @@
                     9
                 </button>
                 <button class="button" id="divide">
-                    /
+                    ÷
                 </button>
                 <button class="button" id="num4">
                     4
@@ -51,7 +51,7 @@
                     6
                 </button>
                 <button class="button" id="mult">
-                    *
+                    ×
                 </button>
                 <button class="button" id="num1">
                     1
@@ -86,6 +86,7 @@
         var eval1 = "";
         var eval2 = "";
         var first = true;
+        var operating = false;
         var showMem = false;
         var operation = "";
         var mem = 0;
@@ -110,6 +111,7 @@
         const clearButton = document.querySelector('#clear');
         const delButton = document.querySelector('#delete');
         button7.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "7";
@@ -125,6 +127,7 @@
 
         });
         button8.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "8";
@@ -139,6 +142,7 @@
             }
         });
         button9.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "9";
@@ -153,6 +157,7 @@
             }
         });
         button4.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "4";
@@ -167,6 +172,7 @@
             }
         });
         button5.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "5";
@@ -181,6 +187,7 @@
             }
         });
         button6.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "6";
@@ -195,6 +202,7 @@
             }
         });
         button1.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "1";
@@ -209,6 +217,7 @@
             }
         });
         button2.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "2";
@@ -223,6 +232,7 @@
             }
         });
         button3.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "3";
@@ -237,6 +247,7 @@
             }
         });
         button0.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if (eval1.length < 15) {
                     eval1 += "0";
@@ -251,6 +262,7 @@
             }
         });
         dot.addEventListener('click', () => {
+            operating = false;
             if (first) {
                 if ((eval1.length < 15) && (!eval1.includes("."))) {
                     eval1 += ".";
@@ -265,65 +277,77 @@
             }
         });
         addButton.addEventListener('click', () => {
+            if (!operating) {
+                if (!first) {
+                    eval1 = operate(eval1, eval2, operation);
+                    setScreen(eval1);
+                    first = true;
+                }
 
-            if (!first) {
-                eval1 = operate(eval1, eval2, operation);
-                setScreen(eval1);
-                first = true;
+                eval2 = "";
+                first = false;
+                operation = "+";
+                operating = true;
             }
-
-            eval2 = "";
-            first = false;
-            operation = "+";
         });
         subButton.addEventListener('click', () => {
+            if (!operating) {
+                if (!first) {
+                    eval1 = operate(eval1, eval2, operation);
+                    setScreen(eval1);
+                    first = true;
+                }
 
-            if (!first) {
-                eval1 = operate(eval1, eval2, operation);
-                setScreen(eval1);
-                first = true;
+                eval2 = "";
+                first = false;
+                operation = "-";
+                operating = true;
             }
-
-            eval2 = "";
-            first = false;
-            operation = "-";
         });
         equals.addEventListener('click', () => {
-            if (!((eval1 == "") || (eval2 == ""))) {
-                eval1 = operate(eval1, eval2, operation);
-                setScreen(eval1);
-                first = true;
+            if (!operating) {
+                if (!((eval1 == "") || (eval2 == ""))) {
+                    eval1 = operate(eval1, eval2, operation);
+                    setScreen(eval1);
+                    first = true;
+                }
             }
-
         });
         multButton.addEventListener('click', () => {
+            if (!operating) {
+                if (!first) {
+                    eval1 = operate(eval1, eval2, operation);
+                    setScreen(eval1);
+                    first = true;
+                }
 
-            if (!first) {
-                eval1 = operate(eval1, eval2, operation);
-                setScreen(eval1);
-                first = true;
+                eval2 = "";
+                first = false;
+                operation = "*";
+                operating = true;
             }
-
-            eval2 = "";
-            first = false;
-            operation = "*";
         });
         divButton.addEventListener('click', () => {
+            if (!operating) {
+                if (!first) {
+                    eval1 = operate(eval1, eval2, operation);
+                    setScreen(eval1);
+                    first = true;
+                }
 
-            if (!first) {
-                eval1 = operate(eval1, eval2, operation);
-                setScreen(eval1);
-                first = true;
+                eval2 = "";
+                first = false;
+                operation = "/";
+                operating = true;
             }
-
-            eval2 = "";
-            first = false;
-            operation = "/";
         });
         memPlus.addEventListener('click', () => {
-            mem += parseFloat(eval1);
+            if (!operating) {
+                mem += parseFloat(eval1);
+            }
         });
         memClear.addEventListener('click', () => {
+            operating = false;
             if (!showMem) {
                 eval1 = mem;
                 eval2 = "";
@@ -344,21 +368,26 @@
 
         });
         clearButton.addEventListener('click', () => {
-            eval1 = "";
-            eval2 = "";
-            first = true;
-            showMem = false;
-            operation = "";
-            setScreen("");
+            if (!operating) {
+                eval1 = "";
+                eval2 = "";
+                first = true;
+                showMem = false;
+                operation = "";
+                setScreen("");
+            }
         });
         delButton.addEventListener('click', () => {
-            if (first) {
-                eval1 = eval1.toString().slice(0, -1);
-                setScreen(eval1);
-            }
-            else {
-                eval2 = eval2.toString().slice(0, -1);
-                setScreen(eval2);
+            if (!operating) {
+                showMem = false;
+                if (first) {
+                    eval1 = eval1.toString().slice(0, -1);
+                    setScreen(eval1);
+                }
+                else {
+                    eval2 = eval2.toString().slice(0, -1);
+                    setScreen(eval2);
+                }
             }
         });
     </script>
